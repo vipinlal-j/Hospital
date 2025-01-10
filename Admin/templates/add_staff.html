@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add departments</title>
+</head>
+<body>
+
+
+
+
+
+<!-- Add Department -->
+		<section class="appointment">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="section-title">
+							<h2>Add a new Employee</h2>
+							<img src="{% static 'style/img/section-img.png' %}" alt="#">
+							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6 col-md-12 col-12">
+						<form class="form" action="{%  url 'add_staff_save' %}" method="post">
+							{% csrf_token %}
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-12">
+									<div class="form-group">
+										<input name="name" type="text" placeholder="Employee Name">
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-12">
+									<div class="form-group">
+										<input name="email" type="email" placeholder="Email">
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-12">
+									<div class="form-group">
+										<input name="phone" type="text" placeholder="Phone">
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-12">
+									<div class="form-group">
+										<select name="type">
+											<option value="Doctor">Doctor</option>
+											<option value="Nurse">Nurse</option>
+											<option value="Pharmacist">Pharmacist</option>
+											<option value="Attender">Attender</option>
+											<option value="Clark">Clark</option>
+											<option value="Lab Tech">Lab Technician</option>
+											<option value="Driver">Driver</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-12">
+									<div class="form-group">
+
+<!--											<ul class="list">-->
+<!--												<li data-value="1" class="option selected ">HOD</li>-->
+<!--												<li data-value="2" class="option">Cardiology</li>-->
+<!--												<li data-value="3" class="option">Dr. Dery Alex</li>-->
+<!--												<li data-value="4" class="option">Dr. Jovis Karon</li>-->
+<!--											</ul>-->
+											<select name="Department" type="text" value="Department">
+												<option>Department</option>
+												{% for d in dept %}
+												<option>{{ d.Name }}</option>
+												{% endfor %}
+											</select>
+
+
+
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-12">
+									<div class="form-group">
+										<input type="text" placeholder="Date" id="datepicker" name="date">
+									</div>
+								</div>
+								<div class="col-lg-12 col-md-12 col-12">
+									<div class="form-group">
+										<textarea name="message" placeholder="Description about the department Here....."></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-5 col-md-4 col-12">
+									<div class="form-group">
+										<div class="button">
+											<button type="submit" class="btn">Add Staff</button>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-7 col-md-8 col-12">
+									<p>(Admin council will confirm by an email)</p>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="col-lg-6 col-md-12 ">
+						<div class="appointment-image">
+							<img src="{% static 'style/img/contact-img.png' %}" alt="#">
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Add Department -->
+
+
+
+
+
+
+</body>
+</html>
+{% endblock %}
